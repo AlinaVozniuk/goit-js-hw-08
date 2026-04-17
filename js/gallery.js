@@ -88,15 +88,12 @@ const imgElement = images.map(({ preview, original, description }) => {
 });
 gallery.append(...imgElement);
 
-gallery.addEventListener("click", handleclick);
-function handleclick(event) {
-    if (event.target.dataset("original"))
-        console.log("original");
-}
-
-const instance = basicLightbox.create(`
+gallery.addEventListener("click", (event) => {
+    event.preventDefault();
+    const instance = basicLightbox.create(`
 	<div class = "modal">
-    <img src = "${imgEl.src}" alt = "${imgEl.alt}"/>
+    <img src = "${event.target.dataset.source}" alt = "${event.target.alt}"/>
     </div>
-	
-`)
+`);
+    instance.show();
+});
