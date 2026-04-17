@@ -90,6 +90,9 @@ gallery.append(...imgElement);
 
 gallery.addEventListener("click", (event) => {
     event.preventDefault();
+
+    if (event.target.nodeName !== "IMG") return;
+
     const instance = basicLightbox.create(`
 	<div class = "modal">
     <img src = "${event.target.dataset.source}" alt = "${event.target.alt}"/>
