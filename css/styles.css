@@ -1,0 +1,11 @@
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    list-style-type: none;
+}
+
+.modal {
+    width: 112px;
+    height: 640px;
+}
